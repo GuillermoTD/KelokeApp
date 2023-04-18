@@ -14,11 +14,15 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  position:relative;
 }
 .Container {
   overflow: hidden;
-  width: 420px;
+  width: 100vw;
   height: 100vh;
+  position:fixed;
+  top:0;
+  overflow:hidden;
 }
 
 .Header {
@@ -36,11 +40,11 @@ body {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 0 1.2rem 0 1.2rem;
-  justify-content: center;
+  justify-content: space-around;
   padding: 1.8rem;
   gap: 9rem;
 }
+
 .Header_Top_Logo {
   color: white;
   font-size: 1.7rem;
@@ -58,34 +62,9 @@ body {
   cursor: pointer;
 }
 
-.Header_Navbar {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  font-size: 1.4rem;
-  position: absolute;
-  bottom: 0;
-  gap: 2rem;
-  color: white;
-  padding: 0.5rem 0;
-}
 
-.Header_Navbar_Item {
-  position: relative;
-  cursor: pointer;
-  width: 2rem;
-}
-/* .Header_Navbar_Item:hover{
-    content:'';
-    position:absolute;
-    width:2rem;
-    height:2px;
-    bottom:0;
-} */
-.Header_Navbar_Items {
-  display: flex;
-  gap: 5rem;
-  width: 100%;
+.Tabs{
+
 }
 
 .Tabs input {
@@ -95,7 +74,6 @@ body {
 
 .Buttons {
   display: flex;
-  position: relative;
   background: var(--color1);
   align-items: center;
   justify-content: center;
@@ -110,6 +88,20 @@ body {
   font-weight: 700;
   cursor: pointer;
   text-align: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.Buttons label::before{
+  content:"";
+  display: block;
+  position:absolute;
+  background:white;
+  width:4rem;
+  height:4px;
+  bottom:-0.3rem;
+  text-align:center;
 }
 
 .Tabs input:nth-child(1):checked ~ .Buttons label:nth-child(1),
@@ -120,23 +112,28 @@ body {
 }
 
 .Buttons_Underline {
-  position: absolute;
+  /* position: absolute;
   left: 0;
-  bottom: 0;
-  width: 17%;
+  bottom: 2rem;
+  width: 2rem;
   height: 3px;
   background: white;
   transition: 0.1s ease-in;
-  border-radius: 10px 10px 0 0;
+  border-radius: 10px 10px 0 0; */
+  position:relative;
 }
 
+
+ 
 /*Esta porcion de codigo es para la animacion de el underline de la pestañas*/
-.Tabs input:nth-child(2):checked ~ .Buttons .Buttons_Underline {
-  left: 0;
+.Tabs input:nth-child(1):checked ~ .Buttons .Buttons_Underline {
+  /* left:calc((35% -15%)*0); */
+  width:4rem;
+
 }
 
 .Tabs input:nth-child(2):checked ~ .Buttons .Buttons_Underline {
-  left: 25%;
+  left: 42.6%;
 }
 
 .Tabs input:nth-child(3):checked ~ .Buttons .Buttons_Underline {
@@ -149,37 +146,43 @@ body {
 
 .Contents {
   position: relative;
-  width: calc(420px * 4);
+  width: calc(100vw * 4);
   display: flex;
 }
 
 .Contents .Box {
   position: relative;
-  width: 420px;
+  width: 100vw;
   transition: 0.2s ease-in-out;
+  height:90vh;
 }
 /*Estas lineas son para la animacion de paso de pagina*/
 .Tabs input:nth-child(1):checked ~ .Contents {
-  left: calc(420px * 0);
+  left: calc(100vw * 0);
 }
 .Tabs input:nth-child(2):checked ~ .Contents {
-  left: calc(420px * -1);
+  left: calc(100vw * -1);
+
 }
 .Tabs input:nth-child(3):checked ~ .Contents {
-  left: calc(420px * -2);
+  left: calc(100vw * -2);
+
 }
 .Tabs input:nth-child(4):checked ~ .Contents {
-  left: calc(420px * -3);
+  left: calc(100vw * -3);
 }
 
 .Contents_Chats {
   overflow: hidden;
+  width: 100%;
+  height:90vh
 }
 
 .Contents_Chats_List {
   overflow-y: scroll;
   overflow-x: 100%;
   height: 100vh;
+  width: 100%;
 }
 
 .Contents_Chats_List_Item {
@@ -220,6 +223,7 @@ body {
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--color2);
+  position:relative;
 }
 
 .Contents_Chats_List_Item_ChatDetails_Message {
